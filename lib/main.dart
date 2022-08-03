@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Whatsapp UI',
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           color: appBarColor,
         ),
       ),
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       //   webScreenLayout: WebLayoutScreen(),
       // ),
       onGenerateRoute: (settings) => generateRoute(settings),
-      home: LandingScreen(),
+      home: const LandingScreen(),
     );
   }
 }
