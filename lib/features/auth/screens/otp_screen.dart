@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/colors.dart';
 
-class OtpScreen extends StatefulWidget {
+class OtpScreen extends ConsumerWidget {
   const OtpScreen({
     Key? key,
     required this.verificationId,
@@ -11,13 +12,10 @@ class OtpScreen extends StatefulWidget {
 
   static const String routeName = '/otp_screen';
 
-  @override
-  State<OtpScreen> createState() => _OtpScreenState();
-}
+  void verifyOTP(){}
 
-class _OtpScreenState extends State<OtpScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -42,8 +40,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   hintStyle: TextStyle(
                     fontSize: 30,
                   ),
-                ),keyboardType: TextInputType.number,
-                onChanged: (val){},
+                ),
+                keyboardType: TextInputType.number,
+                onChanged: (val) {},
               ),
             ),
           ],
