@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/colors.dart';
+import 'package:whatsapp/features/auth/controller/auth_controller.dart';
 
 class OtpScreen extends ConsumerWidget {
   const OtpScreen({
@@ -12,10 +13,20 @@ class OtpScreen extends ConsumerWidget {
 
   static const String routeName = '/otp_screen';
 
-  void verifyOTP(){}
+  void verifyOTP(
+    WidgetRef ref,
+    BuildContext context,
+    String userOTP,
+  ) {
+    ref.read(authControllerProvider).verifyOTP(
+          context,
+          verificationId,
+          userOTP,
+        );
+  }
 
   @override
-  Widget build(BuildContext context,WidgetRef ref) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
@@ -42,7 +53,11 @@ class OtpScreen extends ConsumerWidget {
                   ),
                 ),
                 keyboardType: TextInputType.number,
-                onChanged: (val) {},
+                onChanged: (val) {
+                  if (val.length == 6) {
+                    verifyOTP(ref, context, val.trim());
+                  }
+                },
               ),
             ),
           ],
