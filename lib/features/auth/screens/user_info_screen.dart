@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:whatsapp/common/utils/utils.dart';
 
 class UserInformationScreen extends StatefulWidget {
   const UserInformationScreen({Key? key}) : super(key: key);
@@ -11,10 +13,17 @@ class UserInformationScreen extends StatefulWidget {
 
 class _UserInformationScreenState extends State<UserInformationScreen> {
   final TextEditingController nameController = TextEditingController();
+  File? image;
+
   @override
   void dispose() {
     super.dispose();
     nameController.dispose();
+  }
+
+  void selectImage() async {
+    image = await pickImageFromGallery(context);
+    setState(() {});
   }
 
   @override
@@ -28,17 +37,22 @@ class _UserInformationScreenState extends State<UserInformationScreen> {
             children: [
               Stack(
                 children: [
-                  CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      'https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-                    ),
-                    radius: 64,
-                  ),
+                  image == null
+                      ? CircleAvatar(
+                          backgroundImage: NetworkImage(
+                            'https://png.pngitem.com/pimgs/s/649-6490124_katie-notopoulos-katienotopoulos-i-write-about-tech-round.png',
+                          ),
+                          radius: 64,
+                        )
+                      : CircleAvatar(
+                          backgroundImage: FileImage(image!),
+                          radius: 64,
+                        ),
                   Positioned(
                     bottom: -10,
                     left: 80,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: selectImage,
                       icon: Icon(Icons.add_a_photo),
                     ),
                   ),
