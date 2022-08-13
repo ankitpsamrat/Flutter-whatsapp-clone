@@ -58,42 +58,44 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
         title: const Text('Enter Your Phone Number'),
         backgroundColor: backgroundColor,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text('Please verify your number'),
-            const SizedBox(height: 10),
-            TextButton(
-              onPressed: pickCountry,
-              child: const Text('Pick country'),
-            ),
-            const SizedBox(height: 5),
-            Row(
-              children: [
-                if (country != null) Text('+${country!.phoneCode}'),
-                SizedBox(width: 5),
-                SizedBox(
-                  width: size.width * 0.7,
-                  child: TextField(
-                    controller: phoneController,
-                    decoration: InputDecoration(
-                      hintText: 'Mobile number',
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Please verify your number'),
+              const SizedBox(height: 10),
+              TextButton(
+                onPressed: pickCountry,
+                child: const Text('Pick country'),
+              ),
+              const SizedBox(height: 5),
+              Row(
+                children: [
+                  if (country != null) Text('+${country!.phoneCode}'),
+                  SizedBox(width: 5),
+                  SizedBox(
+                    width: size.width * 0.7,
+                    child: TextField(
+                      controller: phoneController,
+                      decoration: InputDecoration(
+                        hintText: 'Mobile number',
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: size.height * 0.6),
-            SizedBox(
-              width: 90,
-              child: CustomButton(
-                onPressed: sendPhoneNumber,
-                text: 'NEXT',
+                ],
               ),
-            ),
-          ],
+              SizedBox(height: size.height * 0.6),
+              SizedBox(
+                width: 90,
+                child: CustomButton(
+                  onPressed: sendPhoneNumber,
+                  text: 'NEXT',
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
