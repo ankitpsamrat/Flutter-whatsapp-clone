@@ -48,22 +48,19 @@ class MobileLayoutScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
             tabs: [
-              Tab(
-                text: 'CHATS',
-              ),
-              Tab(
-                text: 'STATUS',
-              ),
-              Tab(
-                text: 'CALLS',
-              ),
+              Tab(text: 'CHATS'),
+              Tab(text: 'STATUS'),
+              Tab(text: 'CALLS'),
             ],
           ),
         ),
         body: const ContactsList(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.pushNamed(context, SelectContactsScreen.routeName);
+            Navigator.pushNamed(
+              context,
+              SelectContactsScreen.routeName,
+            );
           },
           backgroundColor: tabColor,
           child: const Icon(
