@@ -6,7 +6,7 @@ import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/common/utils/utils.dart';
 import 'package:whatsapp/models/user_model.dart';
-import 'package:whatsapp/screens/mobile_chat_screen.dart';
+import 'package:whatsapp/features/chat/screens/mobile_chat_screen.dart';
 
 
 final selectContactsRepositoryProvider = Provider(
