@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsapp/colors.dart';
+import '/colors.dart';
 
 class BottomChatField extends StatefulWidget {
   const BottomChatField({Key? key}) : super(key: key);
@@ -41,6 +41,13 @@ class _BottomChatFieldState extends State<BottomChatField> {
                         onPressed: () {},
                         icon: Icon(
                           Icons.emoji_emotions,
+                          color: Colors.grey,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.gif,
                           color: Colors.grey,
                         ),
                       ),

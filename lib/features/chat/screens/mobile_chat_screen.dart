@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:whatsapp/colors.dart';
-import 'package:whatsapp/common/widgets/loader.dart';
-import 'package:whatsapp/features/auth/controller/auth_controller.dart';
-import 'package:whatsapp/features/chat/widgets/bottom_chat_field.dart';
-import 'package:whatsapp/models/user_model.dart';
-import 'package:whatsapp/widgets/chat_list.dart';
+import '/colors.dart';
+import '/common/widgets/loader.dart';
+import '/features/auth/controller/auth_controller.dart';
+import '/features/chat/widgets/bottom_chat_field.dart';
+import '/models/user_model.dart';
+import '/widgets/chat_list.dart';
 
 class MobileChatScreen extends ConsumerWidget {
   const MobileChatScreen({
